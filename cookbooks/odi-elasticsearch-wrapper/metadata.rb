@@ -5,5 +5,6 @@ license          'MIT'
 description      'Wrapper cookbook for an elasticsearch server node'
 version          '0.1.0'
 
+depends          "apt"
 depends          "java"
 depends          "elasticsearch"

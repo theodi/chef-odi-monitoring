@@ -7,3 +7,7 @@
 
 include_recipe "java"
 include_recipe "elasticsearch::default"
+
+package "ruby" do
+  action :upgrade
+end
