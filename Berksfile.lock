@@ -1,0 +1,14 @@
+DEPENDENCIES
+  odi-elasticsearch-wrapper
+    path: cookbooks/odi-elasticsearch-wrapper
+
+GRAPH
+  ark (0.8.0)
+  elasticsearch (0.3.8)
+    ark (>= 0.2.4)
+    build-essential (>= 0.0.0)
+    java (>= 0.0.0)
+    monit (>= 0.0.0)
+    xml (>= 0.0.0)
+  odi-elasticsearch-wrapper (0.1.0)
+    elasticsearch (>= 0.0.0)
