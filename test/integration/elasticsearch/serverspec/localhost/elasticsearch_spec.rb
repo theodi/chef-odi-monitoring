@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe package("bash") do
+describe package("elasticsearch") do
   it { should be_installed }
 end
