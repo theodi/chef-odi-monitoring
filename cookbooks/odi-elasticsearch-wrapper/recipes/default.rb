@@ -22,6 +22,16 @@ package "aspell-en" do
   action :upgrade
 end
 
+template "/etc/default/elasticsearch" do
+  source "elasticsearch.erb"
+  mode 0644
+  owner "root"
+  group "root"
+  variables({
+     heap_size: (node.memory.total.to_i / 4 * 3) / 1000,
+  })
+end
+
 service "elasticsearch" do
   action [:enable, :start]
 end
