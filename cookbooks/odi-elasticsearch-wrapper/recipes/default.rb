@@ -18,6 +18,10 @@ dpkg_package "elasticsearch" do
   action :install
 end
 
+package "aspell-en" do
+  action :upgrade
+end
+
 service "elasticsearch" do
   action [:enable, :start]
 end

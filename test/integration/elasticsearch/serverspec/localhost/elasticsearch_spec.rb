@@ -13,3 +13,12 @@ end
 describe service("elasticsearch") do
   it { should be_running }
 end
+
+# Make sure we have english dictionaries
+describe package("aspell-en") do
+  it { should be_installed }
+end
+
+describe command("aspell dicts") do
+  it { should return_stdout /en/ }
+end
