@@ -11,3 +11,7 @@ include_recipe "elasticsearch::default"
 package "ruby" do
   action :upgrade
 end
+
+service "elasticsearch" do
+  action [:enable, :start]
+end
