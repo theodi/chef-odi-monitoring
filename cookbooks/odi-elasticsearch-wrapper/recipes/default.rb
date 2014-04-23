@@ -4,3 +4,5 @@
 #
 # Copyright 2014, Open Data Institute
 #
+
+include_recipe "elasticsearch::default"

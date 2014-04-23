@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe package("elasticsearch") do
-  it { should be_installed }
+describe file("/usr/local/bin/elasticsearch") do
+  it { should be_file }
 end
