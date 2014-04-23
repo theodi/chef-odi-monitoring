@@ -10,5 +10,5 @@ platforms:
 
 suites:
   - name: elasticsearch
-    run_list:
+    run_list: "recipe[odi-elasticsearch-wrapper]"
     attributes:
