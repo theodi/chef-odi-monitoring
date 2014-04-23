@@ -6,10 +6,16 @@
 #
 
 include_recipe "java"
-include_recipe "elasticsearch::default"
 
-package "ruby" do
-  action :upgrade
+remote_file "/tmp/elasticsearch-0.20.6.deb" do
+  source "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.deb"
+  mode 0644
+  checksum "8896b1dde95a09f27a3ec7d027f995ec27cd358f"
+end
+
+dpkg_package "elasticsearch" do
+  source "/tmp/elasticsearch-0.20.6.deb"
+  action :install
 end
 
 service "elasticsearch" do
