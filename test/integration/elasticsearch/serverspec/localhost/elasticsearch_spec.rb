@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 # Make sure elasticsearch is installed
-describe package("elasticsearch") do
-  it { should be_installed }
-end
-
 describe command("dpkg -l elasticsearch") do
   it { should return_stdout /0\.20\.6/ }
 end
@@ -15,10 +11,6 @@ describe service("elasticsearch") do
 end
 
 # Make sure we have english dictionaries
-describe package("aspell-en") do
-  it { should be_installed }
-end
-
 describe command("aspell dicts") do
   it { should return_stdout /en/ }
 end
