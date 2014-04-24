@@ -6,6 +6,7 @@
 #
 
 include_recipe "java"
+include_recipe "odi-monitoring"
 
 remote_file "/tmp/elasticsearch-0.20.6.deb" do
   source "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.deb"
@@ -35,5 +36,3 @@ end
 service "elasticsearch" do
   action [:enable, :start]
 end
-
-include_recipe "odi-monitoring"
