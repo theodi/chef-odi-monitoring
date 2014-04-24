@@ -8,5 +8,6 @@
 include_recipe "serverdensity"
 
 serverdensity node.name do
-  token "xxxxxxxxx"
+  sd = data_bag_item("serverdensity", "credentials")
+  token sd['api_token']
 end

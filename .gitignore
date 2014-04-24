@@ -3,3 +3,5 @@
 
 /.bundle/
 .leibniz/
+
+/test/data_bags/serverdensity/credentials.json
