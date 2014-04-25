@@ -7,3 +7,5 @@
 /test/data_bags/serverdensity/credentials.json
 
 .DS_Store
+
+/tmp/
