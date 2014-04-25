@@ -7,5 +7,4 @@ gem "test-kitchen"
 gem 'kitchen-vagrant'
 gem 'serverspec'
 gem 'berkshelf', github: 'berkshelf/berkshelf'
-gem 'leibniz', github: 'theodi/leibniz', branch: 'dependencies'
-gem 'cucumber'
+gem 'rake'

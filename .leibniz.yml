@@ -1,7 +1,0 @@
----
-driver: vagrant
-network: 10.2.3.0/24
-suites:
-- name: elasticsearch
-  run_list: []
-  data_bags_path: "test/data_bags/elasticsearch"
