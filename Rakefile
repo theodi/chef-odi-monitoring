@@ -1,7 +1,5 @@
 #!/usr/bin/env rake
 
-task :default => 'foodcritic'
-
 desc "Runs foodcritic linter"
 task :foodcritic do
   Rake::Task[:prepare_sandbox].execute
@@ -13,11 +11,18 @@ task :foodcritic do
   end
 end
 
-desc "Runs knife cookbook test"
-task :knife do
-  Rake::Task[:prepare_sandbox].execute
-  sh "bundle exec knife cookbook test cookbook -c test/.chef/knife.rb -o #{sandbox_path}/../"
+
+namespace :knife do
+
+  desc "Runs knife cookbook test"
+  task :test do
+    Rake::Task[:prepare_sandbox].execute
+    sh "bundle exec knife cookbook test cookbook -c test/.chef/knife.rb -o #{sandbox_path}/../"
+  end
+
 end
+
+task :default => ['foodcritic', 'knife:test']
 
 task :prepare_sandbox do
   files = %w{*.md *.rb attributes definitions files libraries providers recipes resources templates}
