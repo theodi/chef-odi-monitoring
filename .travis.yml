@@ -1,5 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.0
+- 2.1.0
 script:
-  - bundle exec rake
+- bundle exec rake
+after_success:
+- "openssl enc -d -aes-256-cbc -k $CHEF_KEY -in deploy/key.enc -out deploy/key.pem"
+- "chmod 600 deploy/key.pem"
+- "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec rake berkshelf:upload"
+env:
+  global:
+    secure: FaHwHRNNYS6RllJEVaIVeQIEnjUhPyrZYZdNMJM9+5mlLqHEOqeYIENZr+/LfVc2+gtx6ll+zos6LsPeFG2lzmDozZYf9x9ffywR/1LyfKTTtM5Y2sggj8PzMufpJDJedeHOHjY2fIoNBLrapm2DaTHbLnYB65XhxDY2dAL1Ses=
