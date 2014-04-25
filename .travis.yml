@@ -9,4 +9,7 @@ after_success:
 - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bundle exec rake berkshelf:upload'
 env:
   global:
-    secure: FaHwHRNNYS6RllJEVaIVeQIEnjUhPyrZYZdNMJM9+5mlLqHEOqeYIENZr+/LfVc2+gtx6ll+zos6LsPeFG2lzmDozZYf9x9ffywR/1LyfKTTtM5Y2sggj8PzMufpJDJedeHOHjY2fIoNBLrapm2DaTHbLnYB65XhxDY2dAL1Ses=
+  - secure: FaHwHRNNYS6RllJEVaIVeQIEnjUhPyrZYZdNMJM9+5mlLqHEOqeYIENZr+/LfVc2+gtx6ll+zos6LsPeFG2lzmDozZYf9x9ffywR/1LyfKTTtM5Y2sggj8PzMufpJDJedeHOHjY2fIoNBLrapm2DaTHbLnYB65XhxDY2dAL1Ses=
+  - secure: PZFk3SN0qgquxjMEzT6Xy1pl2vEMqj2/rK961ZiTTjaaDpfdC8I63JJoSqdG90w8mjAlj/vFXs1CzSwpAY+FidgDTKW6/gMYC7u6WUR1rR2nguF0DZFNwyNv7JrFW1/v6QHdGb/GWBPPjWZWxe4ssb+kHJ0N98tuHdg9Qnt3Ywk=
+  - secure: PF6wER4JyXFy5AcX2TEUlh+rQQqY/6c0TU1Qmidp94vKr/Ctq+HH0QY61DM4R42CUGMGCmXPd/FsdQ0gv1GCIJA/2KEELGS/PtFQfkEWJHocPbPEuTeIhZNDi57q6kcJ3ivSDHR1hibnbJiyAfZ2p75M2L7ryobV6MtQjYjDfcs=
+  - KITCHEN_YAML=.kitchen.cloud.yml

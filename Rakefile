@@ -31,7 +31,16 @@ namespace :berkshelf do
 
 end
 
-task :default => ['foodcritic', 'knife:test']
+namespace :kitchen do
+
+  desc "Run test-kitchen tests"
+  rake :test do
+    sh "kitchen test"
+  end
+
+end
+
+task :default => ['foodcritic', 'knife:test', 'kitchen:test']
 
 task :prepare_sandbox do
   files = %w{*.md *.rb attributes definitions files libraries providers recipes resources templates}
