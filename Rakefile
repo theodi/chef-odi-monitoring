@@ -34,7 +34,7 @@ end
 namespace :kitchen do
 
   desc "Run test-kitchen tests"
-  take :test do
+  rake :test do
     sh "kitchen test"
   end
 
