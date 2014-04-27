@@ -1,4 +1,4 @@
 site :opscode
 
 metadata
-cookbook 'serverdensity', git: 'https://github.com/serverdensity/chef-serverdensity.git'
+cookbook 'serverdensity', git: 'git://github.com/serverdensity/chef-serverdensity.git'
