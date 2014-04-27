@@ -27,6 +27,7 @@ namespace :kitchen do
   desc "Run test-kitchen tests"
   task :test do
     sh "kitchen test"
+    sh "kitchen destroy"
   end
 
 end
