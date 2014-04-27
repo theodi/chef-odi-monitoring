@@ -3,7 +3,7 @@ DEPENDENCIES
     path: .
     metadata: true
   serverdensity
-    git: https://github.com/serverdensity/chef-serverdensity.git
+    git: git://github.com/serverdensity/chef-serverdensity.git
     revision: 5d1f81c8d14074dbdf8fc3eaee3f238acc22f693
 
 GRAPH
