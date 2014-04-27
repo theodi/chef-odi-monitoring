@@ -5,6 +5,8 @@ before_script:
   - ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
   - echo 'Host *' >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - git config --global user.email "tech@theodi.org"
+  - git config --global user.name "odi-robot"
 script:
   - bundle exec rake
 env:
