@@ -7,9 +7,15 @@ before_script:
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
   - openssl aes-256-cbc -k "$DATA_BAG_KEY" -in test/data_bags/serverdensity/credentials.enc.json -d -a -out test/data_bags/serverdensity/credentials.json
 script:
-  - bundle exec rake
+- bundle exec rake
+after_success:
+- "openssl enc -d -aes-256-cbc -k $CHEF_KEY -in deploy/key.enc -out deploy/key.pem"
+- "chmod 600 deploy/key.pem"
+- "bundle exec berks install"
+- '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bundle exec rake berkshelf:upload'
 env:
   global:
+  - secure: FaHwHRNNYS6RllJEVaIVeQIEnjUhPyrZYZdNMJM9+5mlLqHEOqeYIENZr+/LfVc2+gtx6ll+zos6LsPeFG2lzmDozZYf9x9ffywR/1LyfKTTtM5Y2sggj8PzMufpJDJedeHOHjY2fIoNBLrapm2DaTHbLnYB65XhxDY2dAL1Ses=
   - secure: PZFk3SN0qgquxjMEzT6Xy1pl2vEMqj2/rK961ZiTTjaaDpfdC8I63JJoSqdG90w8mjAlj/vFXs1CzSwpAY+FidgDTKW6/gMYC7u6WUR1rR2nguF0DZFNwyNv7JrFW1/v6QHdGb/GWBPPjWZWxe4ssb+kHJ0N98tuHdg9Qnt3Ywk=
   - secure: PF6wER4JyXFy5AcX2TEUlh+rQQqY/6c0TU1Qmidp94vKr/Ctq+HH0QY61DM4R42CUGMGCmXPd/FsdQ0gv1GCIJA/2KEELGS/PtFQfkEWJHocPbPEuTeIhZNDi57q6kcJ3ivSDHR1hibnbJiyAfZ2p75M2L7ryobV6MtQjYjDfcs=
   - secure: LeF3JTnBZbtbJGgsSCCn43R80Ab2KghoSPIniWrVcXJpGbVtYXpYgK5yqx6T8kjIO3KvYZW2gmygC6Jz7L621+d8yY60xP3EncYcOR4dqKx1xYOAR4fYQxOa5/ECbMLziqphUZ0vgAAcOoDu///l5uXJziYM9TY+ma9rJS1Pz1Q=
